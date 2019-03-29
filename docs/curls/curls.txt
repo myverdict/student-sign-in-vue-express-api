@@ -1,0 +1,21 @@
+
+// get all students 
+curl 127.0.0.1:3000/api/students
+
+// get student with id = 1
+127.0.0.1:3000/api/students/1
+
+// posts to add student 
+curl -X POST --data '{"name":"zoe"}' -H "Content-Type: Application/JSON" 127.0.0.1:3000/api/students
+curl -X POST --data '{"name":"zoe", "starID":"z1z"}' -H "Content-Type: Application/JSON" 127.0.0.1:3000/api/students
+curl -X POST --data '{"name":"bob", "starID":"b2b"}' -H "Content-Type: Application/JSON" 127.0.0.1:3000/api/students
+
+// edit student with id = 1 , set present to true 
+curl -X PATCH --data '{"present":"true"}' -H "Content-Type: Application/JSON" 127.0.0.1:3000/api/students/1
+
+// edit student with id=1, set name to 'bob'
+curl -X PATCH --data '{"name":"bob"}' -H "Content-Type: Application/JSON" 127.0.0.1:3000/api/students/1
+curl -X PATCH --data '{"starID":"b1b"}' -H "Content-Type: Application/JSON" 127.0.0.1:3000/api/students/3
+
+// delete student id = 1 
+curl -X DELETE 127.0.0.1:3000/api/students/1
