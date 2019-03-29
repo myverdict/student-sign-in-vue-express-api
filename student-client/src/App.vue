@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     
-    <h1>Student Sign In</h1>
+    <h1 class="m-2 p-2">Student Sign In</h1>
 
     <NewStudentForm v-on:student-added="newStudentAdded"></NewStudentForm>
     <StudentTable
