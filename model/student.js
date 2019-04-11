@@ -1,5 +1,3 @@
-///class Student extends Sequelize.Model {}
-
 module.exports = (sequelize, DataTypes) => {
 
     var Student = sequelize.define('Student', {
@@ -17,13 +15,15 @@ module.exports = (sequelize, DataTypes) => {
         }
     })
 
-    //force specifies whether to drop the table or not
+    // force specifies whether to drop the table or not
     // true = drop table every time app restarts. Need this setting if table schema changed.
     // false = keep table
     Student.sync({force: false}).then( () => {
         console.log('synced table')
     })
 
-    return Student
-    
+    return Student  
 } 
+
+
+

@@ -34,12 +34,11 @@ export default {
     StudentMessage
   },
   mounted() {
-    console.log("mounted")
     this.updateStudents()
   },
   methods: {
     newStudentAdded(student) {
-      this.$student_api.addStudent(student).then( student => {
+        this.$student_api.addStudent(student).then( student => {
         this.updateStudents()   
       }).catch(err => {
         let msg = err.response.data.join(', ')

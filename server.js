@@ -42,17 +42,16 @@ router = api_routes(StudentModel)
 
 app.use('/api', router)
 
-console.log(app._router.stack)
-
-// Error handlers - for not found, and app errors 
+// Error handlers - for route not found
 app.use(function(req, res, next){
     res.status(404).send('Not found')
 })
 
+// Error handler for server errors 
 app.use(function (err, req, res, next) {
     console.error(err.stack)
     res.status(500).send('Server error')
-  })
+})
 
 
 // Start server running 

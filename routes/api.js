@@ -9,7 +9,7 @@ module.exports = function(Student) {
     router.get('/students', function(req, res, next){
         Student.findAll({order: ['name']}).then( students => {
             return res.json(students)
-        }).catch( err => next(err) )
+        }).catch(err => next(err))
     })
 
     router.get('/students/:id', function(req, res, next) {
@@ -19,12 +19,12 @@ module.exports = function(Student) {
             } else {
                 res.status(404).send('Student not found')
             }
-        }).catch( err => next(err) )
+        }).catch(err => next(err))
     })
 
     router.post('/students', function(req, res, next){
         Student.create(req.body).then( (data) => {
-            return res.send('ok')
+            return res.status(201).send('ok')
         }).catch( err => {
             if (err instanceof Sequelize.ValidationError) {
                 let messages = err.errors.map( (e) => e.message)
@@ -44,7 +44,7 @@ module.exports = function(Student) {
             if (!rowsModified[0]) {
                 return res.status(404).send('Not found')               
             } else {
-                return res.send('Ok')
+                return res.send('ok')
             }
         }).catch( err => {
             if (err instanceof Sequelize.ValidationError) {
