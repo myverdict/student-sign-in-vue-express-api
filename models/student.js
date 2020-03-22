@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     // true = drop table every time app restarts. Need this setting if table schema changed.
     // false = keep table
     Student.sync({force: false}).then( () => {
-        console.log('synced table')
+        console.log('synced student table')
     })
 
     return Student  
