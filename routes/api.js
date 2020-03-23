@@ -28,7 +28,8 @@ router.post('/students', function(req, res, next){
     }).catch( err => {
         if (err instanceof Sequelize.ValidationError) {
             let messages = err.errors.map( e => e.message )
-            return res.status(500).json(messages)
+            // 400 status = bad request from user 
+            return res.status(400).json(messages)
         }
         return next(err)
     } )
@@ -50,7 +51,7 @@ router.patch('/students/:id', function(req, res, next){
     }).catch( err => {
         if (err instanceof Sequelize.ValidationError) {
             let messages = err.errors.map( (e) => e.message)
-            return res.status(500).json(messages)
+            return res.status(400).json(messages)
         }
         return next(err)
     })
